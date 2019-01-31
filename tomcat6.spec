@@ -23,7 +23,7 @@ Source1:    %{name}.service
 Source2:    %{name}.sh
 Source3:    %{name}.logrotate
 Source4:    %{name}.conf
-Requires:   java
+Requires:   java-1.7.0-openjdk-headless
 Requires:   jpackage-utils
 Requires:   policycoreutils-python
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
