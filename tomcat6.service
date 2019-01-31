@@ -5,17 +5,17 @@ After=syslog.target network.target
 
 [Service]
 Type=forking
-User=tomcat8
-Group=tomcat8
-PIDFile=/var/run/tomcat8/tomcat8.pid
-ExecStart=/usr/share/tomcat8/bin/startup.sh
-ExecStop=/usr/share/tomcat8/bin/shutdown.sh
+User=tomcat6
+Group=tomcat6
+PIDFile=/var/run/tomcat6/tomcat6.pid
+ExecStart=/usr/share/tomcat6/bin/startup.sh
+ExecStop=/usr/share/tomcat6/bin/shutdown.sh
 KillMode=process
 Restart=on-failure
 TimeoutSec=300
 SyslogIdentifier=tomcat-%i
-EnvironmentFile=/etc/tomcat8/tomcat8.conf
-RuntimeDirectory=tomcat8
+EnvironmentFile=/etc/tomcat6/tomcat6.conf
+RuntimeDirectory=tomcat6
 
 [Install]
 WantedBy=multi-user.target

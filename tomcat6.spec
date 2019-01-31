@@ -4,15 +4,15 @@
 #
 
 %define __jar_repack %{nil}
-%define tomcat_home /usr/share/tomcat8
-%define tomcat_group tomcat8
-%define tomcat_user tomcat8
-%define tomcat_user_home /var/lib/tomcat8
-%define tomcat_cache_home /var/cache/tomcat8
+%define tomcat_home /usr/share/tomcat6
+%define tomcat_group tomcat6
+%define tomcat_user tomcat6
+%define tomcat_user_home /var/lib/tomcat6
+%define tomcat_cache_home /var/cache/tomcat6
 
 Summary:    Apache Servlet/JSP Engine, RI for Servlet 3.1/JSP 2.3 API
-Name:       tomcat8
-Version:    8.0.53
+Name:       tomcat6
+Version:    6.0.53
 BuildArch:  noarch
 Release:    1
 License:    Apache Software License
@@ -116,7 +116,7 @@ rm -rf %{buildroot}
 
 %pre
 getent group %{tomcat_group} >/dev/null || groupadd -r %{tomcat_group}
-getent passwd %{tomcat_user} >/dev/null || /usr/sbin/useradd --comment "Tomcat 8 Daemon User" --shell /bin/bash -M -r -g %{tomcat_group} --home %{tomcat_home} %{tomcat_user}
+getent passwd %{tomcat_user} >/dev/null || /usr/sbin/useradd --comment "Tomcat Daemon User" --shell /bin/bash -M -r -g %{tomcat_group} --home %{tomcat_home} %{tomcat_user}
 
 %files
 %defattr(-,%{tomcat_user},%{tomcat_group})
