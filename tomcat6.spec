@@ -63,15 +63,6 @@ cd -
 # Remove *.bat
 rm -f %{buildroot}/%{tomcat_home}/bin/*.bat
 
-# Remove extra logging configs
-sed -i -e '/^3manager/d' -e '/\[\/manager\]/d' \
-    -e '/^4host-manager/d' -e '/\[\/host-manager\]/d' \
-    -e '/^java.util.logging.ConsoleHandler/d' \
-    -e 's/, *java.util.logging.ConsoleHandler//' \
-    -e 's/, *4host-manager.org.apache.juli.AsyncFileHandler//' \
-    -e 's/, *3manager.org.apache.juli.AsyncFileHandler//' \
-    %{buildroot}/%{tomcat_home}/conf/logging.properties
-
 # Put logging in /var/log and link back.
 rm -rf %{buildroot}/%{tomcat_home}/logs
 install -d -m 755 %{buildroot}/var/log/%{name}/
